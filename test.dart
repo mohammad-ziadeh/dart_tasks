@@ -1,39 +1,68 @@
+class Animal {
+  String? name;
+  int? numberOfLegs;
+  String? color;
+
+  //**************** {{Controller}} *****************//
+
+  // Animal(this.name, this.numberOfLegs, this.color);
+
+  // default constructor //
+
+  // Animal(String name, int numberOfLegs, String color) {
+  //   this.name = name.toUpperCase();
+  //   this.numberOfLegs = numberOfLegs;
+  //   this.color = color;
+  // }
+  // use this if u want to add logic like .toUpperCase() or validation
+  //*************************************************//
+
+ 
+  void display() {
+    print("Animal Name: $name");
+    print("Number of Legs: $numberOfLegs");
+    print("Color: $color");
+  }
+}
+
+
+class Price {
+
+   //**************** {{Encapsulation}} ****************//
+  double _price = 99.99; // cant be accessed outside the class
+
+  double get price => _price; // getter make it accessible outside the class safely
+
+set addPrice(double amount) {
+  if (amount > 0) { // wont accept negative values
+    _price += amount;
+  }
+} // change the value of _price safely outside the class
+
+  //*************************************************//
+
+}
+
 void main() {
-  List<int> numbers = [10, 20, 30, 30];
-  numbers.insert(1, 15);
-  numbers.remove(20);
-  print(numbers);
+  Animal animal = Animal(); // creating an object of Animal class
+  animal.name = "Dog";
+  animal.numberOfLegs = 4;
+  animal.color = "Brown";
 
-  //--------------------------------------
+  // calling the constructor
+  //  Animal animal = Animal("Dog", 4, "Brown");
 
-  //   Set<int> tags = {1, 2, 3, 4, 5};
-  //   tags.add(2);
-  //   print(tags);
 
-  //--------------------------------------
+    // calling the Encapsulation
+    var thePrice = Price();
 
-  //   Map<String, String> user = {'name': 'Ali', 'email': 'ali@example.com'};
+    print(thePrice.price); // accessing the price using getter
 
-  //   user['age'] = '25';
-  //   user.remove('email');
-  //   print(user.keys);
-  //   print(user.values);
+    thePrice.addPrice = 10; // changing the price using setter
 
-  //--------------------------------------
+    print(thePrice.price); // after adding the 10
 
-  //   List<String> colors = ['Red', 'Green', 'Blue'];
+// ####################################
 
-  //   for (int i = 0; i < colors.length; i++) {
-  //     print("Color at $i is ${colors[i]}");
-  //   }
-
-  //-----------------------------------------
-
-  //     List<String> fruits = ['Apple', 'Banana', 'Mango'];
-
-  //   fruits.forEach((fruit) {
-  //     print("I love $fruit");
-  //   });
-
-  //-----------------------------------------
+  animal.display(); // calling the void display ^^^
 }
